@@ -1,4 +1,4 @@
-import { validSolution } from "./valid/validSolution.js";
+import { validSolution } from "./validation/validSolution.js";
 
 
 console.log(validSolution([
