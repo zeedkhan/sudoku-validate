@@ -1,4 +1,11 @@
+/**
+ * 
+ * @param {array[][]} [Array<Array<number>>]
+ * @returns {Boolean}
+ */
+
 export function validSolution(board) {
+    // check row by row, column by column for duplicate number
     for (let i = 0; i < board.length; i++) {
         if (!board[i].every((i, k, arr) => arr.indexOf(i) === k)) {
             return false
@@ -10,8 +17,11 @@ export function validSolution(board) {
         if (!result.every((i, k, a) => a.indexOf(i) === k)) return false
     }
 
+    // expect result to be each block with contains all of these number
     var checkBlock = [1, 2, 3, 4, 5, 6, 7, 8, 9].toString()
 
+    // Still Finding better solution sorry
+    // Split blocks 3x3 for 9 times
     var firstBlock = [board[0][0], board[0][1], board[0][2], board[1][0], board[1][1], board[1][2], board[2][0], board[2][1], board[2][2]].sort().toString() == checkBlock,
         secondBlock = [board[0][3], board[0][4], board[0][5], board[1][3], board[1][4], board[1][5], board[2][3], board[2][4], board[2][5]].sort().toString() == checkBlock,
         thirdBlock = [board[0][6], board[0][7], board[0][8], board[1][6], board[1][7], board[1][8], board[2][6], board[2][7], board[2][8]].sort().toString() == checkBlock,
@@ -24,6 +34,6 @@ export function validSolution(board) {
 
     if (!firstBlock || !secondBlock || !thirdBlock || !fourthBlock || !fifthBlock || !sixthBlock || !seventhBlock || !eighthBlock || !ninthBlock) return false;
 
-
+    
     return true
 }
